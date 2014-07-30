@@ -9,6 +9,7 @@ except ImportError: # python 2
 from django.core import urlresolvers
 from django.core.exceptions import SuspiciousOperation
 from django.http import HttpResponseRedirect, QueryDict
+from django.utils import six
 
 from account.conf import settings
 
@@ -88,3 +89,10 @@ def handle_redirect_to_login(request, **kwargs):
         querystring[redirect_field_name] = next_url
         url_bits[4] = querystring.urlencode(safe="/")
     return HttpResponseRedirect(urlunparse(url_bits))
+
+
+def pk_to_base36(pk):
+    if isinstance(pk, six.integer_types):
+        return int_to_base36(pk)
+    else:
+        return str(pk).replace("-", "")
