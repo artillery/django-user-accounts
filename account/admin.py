@@ -14,7 +14,7 @@ class SignupCodeAdmin(admin.ModelAdmin):
 
 class EmailAddressAdmin(admin.ModelAdmin):
     list_display = ["user", "email", "verified", "primary"]
-    search_fields = ["user", "email"]
+    search_fields = ["user__username", "email"]
     list_filter = ["user"]
 
 
