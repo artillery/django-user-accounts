@@ -13,6 +13,7 @@ from django.utils import six
 
 from account.conf import settings
 
+from django.utils.http import int_to_base36
 
 def default_redirect(request, fallback_url, **kwargs):
     redirect_field_name = kwargs.get("redirect_field_name", "next")
