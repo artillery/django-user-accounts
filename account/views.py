@@ -698,7 +698,8 @@ class SettingsView(LoginRequiredMixin, FormView):
             "redirect_field_value": self.request.REQUEST.get(redirect_field_name, ""),
         })
 
-	ctx['verified'] = self.primary_email_address.verified
+	if self.primary_email_address:
+                ctx['verified'] = self.primary_email_address.verified
 
         return ctx
 
