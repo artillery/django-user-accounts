@@ -25,6 +25,7 @@ from account.mixins import LoginRequiredMixin
 from account.models import SignupCode, EmailAddress, EmailConfirmation, Account, AccountDeletion
 from account.utils import default_redirect, pk_to_base36
 
+from django.db import models
 
 class SignupView(FormView):
 
